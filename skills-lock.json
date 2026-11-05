@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "skills": {
+    "frontend-design": {
+      "source": "vercel-labs/agent-eval",
+      "sourceType": "github",
+      "skillPath": "packages/playground/.agents/skills/frontend-design/SKILL.md",
+      "computedHash": "063a0e6448123cd359ad0044cc46b0e490cc7964d45ef4bb9fd842bd2ffbca67"
+    },
+    "impeccable": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/impeccable/SKILL.md",
+      "computedHash": "dc19f9b4d1af690e0915b6294f390a1c30c6444148708b6b07cd64fa2e35a8db"
+    },
+    "interactive-portfolio": {
+      "source": "sickn33/agentic-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/interactive-portfolio/SKILL.md",
+      "computedHash": "31b37ccbe7c19cb9629d79513a8f500b29ba4625919158051b39839b15511394"
+    },
+    "vercel-react-best-practices": {
+      "source": "vercel-labs/agent-eval",
+      "sourceType": "github",
+      "skillPath": "packages/playground/.agents/skills/vercel-react-best-practices/SKILL.md",
+      "computedHash": "c2132495f91c8fd53a6f8957203b3dfc083adfa66585746349f747150b686f6a"
+    },
+    "web-design-guidelines": {
+      "source": "vercel-labs/agent-eval",
+      "sourceType": "github",
+      "skillPath": "packages/playground/.agents/skills/web-design-guidelines/SKILL.md",
+      "computedHash": "a6a44d5498f7e8f68289902f3dedfc6f38ae0cee1e96527c80724cf27f727c2a"
+    }
+  }
+}
