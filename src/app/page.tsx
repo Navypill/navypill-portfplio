@@ -26,15 +26,25 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Right: John's Illustrated Portrait Cutout */}
-        <div className="absolute right-0 sm:right-4 md:right-8 lg:right-10 bottom-0 h-full max-h-[500px] aspect-[353/500] pointer-events-none z-10">
+        {/* Right: John's Illustrated Portrait — hover swaps greyscale → colour */}
+        <div className="absolute right-0 sm:right-4 md:right-8 lg:right-10 bottom-0 h-full max-h-[500px] aspect-[353/500] pointer-events-auto z-10 group/portrait">
+          {/* Greyscale — default, fades out on hover */}
           <Image
             src="/assets/portrait.png"
             alt="Illustrated Portrait of John Agburu"
             fill
             priority
             sizes="(max-width: 640px) 190px, (max-width: 1024px) 280px, 360px"
-            className="object-contain object-bottom"
+            className="object-contain object-bottom transition-opacity duration-500 ease-in-out group-hover/portrait:opacity-0"
+          />
+          {/* Colour — hidden by default, fades in on hover */}
+          <Image
+            src="/assets/portrait-colour.png"
+            alt=""
+            aria-hidden="true"
+            fill
+            sizes="(max-width: 640px) 190px, (max-width: 1024px) 280px, 360px"
+            className="object-contain object-bottom transition-opacity duration-500 ease-in-out opacity-0 group-hover/portrait:opacity-100"
           />
         </div>
       </section>
