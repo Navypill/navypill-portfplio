@@ -31,7 +31,7 @@ export default function ResumeModal() {
       {/* Modal Card - Sized to display 100% of contents without scrolling on desktop, perfectly proportioned to 1-page resume (A4 / 1:1.41) */}
       <div
         id="resume-printable-document"
-        className="relative w-full max-w-[580px] lg:max-w-[610px] xl:max-w-[640px] h-auto max-h-[96vh] md:max-h-[94vh] flex flex-col bg-[#eeeeee] border-[2px] border-[#141414] shadow-[6px_6px_0px_#141414] text-[#141414] overflow-hidden select-none"
+        className="relative h-[96vh] w-auto aspect-[1/1.41] flex flex-col bg-[#eeeeee] border-[2px] border-[#141414] shadow-[6px_6px_0px_#141414] text-[#141414] overflow-hidden select-none"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Header Section */}
