@@ -26,25 +26,25 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Right: John's Illustrated Portrait — hover swaps greyscale → colour */}
-        <div className="absolute right-0 sm:right-4 md:right-8 lg:right-10 bottom-0 h-full max-h-[500px] aspect-[353/500] pointer-events-auto z-10 group/portrait">
-          {/* Greyscale — default, fades out on hover */}
+        {/* Right: John's Illustrated Portrait — colour fades in directly over steady greyscale base */}
+        <div className="absolute right-0 sm:right-4 md:right-8 lg:right-10 bottom-0 h-full max-h-[500px] aspect-[353/500] pointer-events-auto z-10 group/portrait cursor-pointer">
+          {/* Greyscale Base — permanent, always visible, never dims */}
           <Image
             src="/assets/portrait.png"
             alt="Illustrated Portrait of John Agburu"
             fill
             priority
             sizes="(max-width: 640px) 190px, (max-width: 1024px) 280px, 360px"
-            className="object-contain object-bottom transition-opacity duration-500 ease-in-out group-hover/portrait:opacity-0"
+            className="object-contain object-bottom pointer-events-none"
           />
-          {/* Colour — hidden by default, fades in on hover */}
+          {/* Colour Overlay — sits directly on top, smoothly fades in on hover without any dip to black */}
           <Image
             src="/assets/portrait-colour.png"
             alt=""
             aria-hidden="true"
             fill
             sizes="(max-width: 640px) 190px, (max-width: 1024px) 280px, 360px"
-            className="object-contain object-bottom transition-opacity duration-500 ease-in-out opacity-0 group-hover/portrait:opacity-100"
+            className="object-contain object-bottom transition-opacity duration-500 ease-out opacity-0 group-hover/portrait:opacity-100 pointer-events-none"
           />
         </div>
       </section>
@@ -83,14 +83,14 @@ export default function Home() {
         <Link
           href="/illustrations"
           aria-label="View Illustrations detailed showcase"
-          className="border-[2px] md:border-[2.5px] border-[#141414] bg-[#eeeeee] p-2.5 sm:p-3 md:p-3 flex flex-col min-h-[220px] lg:min-h-0 group cursor-pointer transition-all duration-300 hover:border-[#B81300] hover:shadow-[4px_4px_0px_#141414] active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B81300]"
+          className="border-[2px] md:border-[2.5px] border-[#141414] bg-[#eeeeee] p-2.5 sm:p-3 md:p-3 flex flex-col min-h-[220px] lg:min-h-0 group cursor-pointer transition-all duration-300 hover:border-[#141414] hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[5px_5px_0px_#141414] active:translate-x-0 active:translate-y-0 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#141414]"
         >
           <header className="flex items-center justify-between shrink-0 mb-2">
-            <h2 className="font-mono text-xs sm:text-[13px] font-bold tracking-wider text-[#141414] group-hover:text-[#B81300] transition-colors uppercase">
+            <h2 className="font-mono text-xs sm:text-[13px] font-bold tracking-wider text-[#141414] group-hover:tracking-widest transition-all uppercase">
               ILLUSTRATIONS
             </h2>
             <span
-              className="font-mono text-[11px] font-semibold text-[#B81300] opacity-0 group-hover:opacity-100 transition-all duration-200 transform translate-x-[-4px] group-hover:translate-x-0 flex items-center gap-1"
+              className="font-mono text-[11px] font-semibold text-[#141414] opacity-0 group-hover:opacity-100 transition-all duration-200 transform translate-x-[-4px] group-hover:translate-x-0 flex items-center gap-1"
               aria-hidden="true"
             >
               EXPLORE <span>→</span>
@@ -115,7 +115,7 @@ export default function Home() {
         <Link
           href="/projects"
           aria-label="View Projects detailed showcase"
-          className="border-[2px] md:border-[2.5px] border-[#141414] bg-[#eeeeee] p-2.5 sm:p-3 md:p-3 flex flex-col min-h-[220px] lg:min-h-0 group cursor-pointer transition-all duration-300 hover:border-[#141414] hover:shadow-[4px_4px_0px_#141414] active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#141414]"
+          className="border-[2px] md:border-[2.5px] border-[#141414] bg-[#eeeeee] p-2.5 sm:p-3 md:p-3 flex flex-col min-h-[220px] lg:min-h-0 group cursor-pointer transition-all duration-300 hover:border-[#141414] hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[5px_5px_0px_#141414] active:translate-x-0 active:translate-y-0 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#141414]"
         >
           <header className="flex items-center justify-between shrink-0 mb-2">
             <h2 className="font-mono text-xs sm:text-[13px] font-bold tracking-wider text-[#141414] group-hover:tracking-widest transition-all uppercase">

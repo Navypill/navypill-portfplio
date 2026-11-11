@@ -1,13 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Illustrations — John Agburu",
-  description: "Curated illustration collection by John Agburu.",
-};
+import { useContactModal } from "@/context/ContactModalContext";
 
 export default function IllustrationsPage() {
+  const { openContact } = useContactModal();
+
   return (
     <div className="flex-1 flex flex-col p-4 sm:p-6 md:p-8 overflow-y-auto">
       {/* Navigation header */}
@@ -57,7 +56,7 @@ export default function IllustrationsPage() {
               APPROACH
             </span>
             <h2 className="text-xl sm:text-2xl font-bold mt-2 mb-4 text-[#141414]">
-              Sharp, Functional & Impactful
+              Sharp, Functional &amp; Impactful
             </h2>
             <p className="text-xs sm:text-sm text-[#141414]/80 leading-relaxed space-y-3 font-sans">
               Every illustration begins with a clear structural foundation. Balancing crisp silhouettes, high contrast, and dynamic posture ensures each artwork captures immediate attention while communicating character and tone.
@@ -66,12 +65,13 @@ export default function IllustrationsPage() {
 
           <div className="border-t border-[#141414]/20 pt-4 mt-6 flex items-center justify-between font-mono text-xs">
             <span className="text-[#141414]/60">STATUS: OPEN FOR COMMISSIONS</span>
-            <Link
-              href="/contact"
-              className="font-semibold text-[#141414] hover:text-[#B81300] underline underline-offset-4"
+            <button
+              type="button"
+              onClick={openContact}
+              className="font-semibold text-[#141414] hover:text-[#B81300] underline underline-offset-4 cursor-pointer"
             >
               INQUIRE →
-            </Link>
+            </button>
           </div>
         </div>
       </div>

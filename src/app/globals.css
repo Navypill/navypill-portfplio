@@ -99,3 +99,65 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #B81300;
 }
+
+/* Print Styles for Resume Modal PDF generation */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    color: #141414 !important;
+    height: 100% !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide everything on the page except the resume printable card */
+  body > * {
+    display: none !important;
+  }
+
+  /* Target modal container specifically to isolate resume */
+  #resume-modal-portal {
+    display: block !important;
+    position: static !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  #resume-printable-document {
+    display: flex !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 24px 32px !important;
+    background: #ffffff !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Hide screen-only interactive buttons in PDF */
+  .no-print {
+    display: none !important;
+  }
+
+  /* Ensure text colors stay solid and sharp */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}

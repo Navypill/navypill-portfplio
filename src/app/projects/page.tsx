@@ -1,13 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Projects — John Agburu",
-  description: "Graphic design, brand identity, and typography projects by John Agburu.",
-};
+import { useContactModal } from "@/context/ContactModalContext";
 
 export default function ProjectsPage() {
+  const { openContact } = useContactModal();
+
   return (
     <div className="flex-1 flex flex-col p-4 sm:p-6 md:p-8 overflow-y-auto">
       {/* Navigation header */}
@@ -70,13 +69,14 @@ export default function ProjectsPage() {
           </div>
 
           <div className="border-t border-[#141414]/20 pt-4 mt-6 flex items-center justify-between font-mono text-xs">
-            <span className="text-[#141414]/60">DISCIPLINE: BRANDING & TYPOGRAPHY</span>
-            <Link
-              href="/contact"
-              className="font-semibold text-[#141414] hover:text-[#B81300] underline underline-offset-4"
+            <span className="text-[#141414]/60">DISCIPLINE: BRANDING &amp; TYPOGRAPHY</span>
+            <button
+              type="button"
+              onClick={openContact}
+              className="font-semibold text-[#141414] hover:text-[#B81300] underline underline-offset-4 cursor-pointer"
             >
               START A PROJECT →
-            </Link>
+            </button>
           </div>
         </div>
       </div>
