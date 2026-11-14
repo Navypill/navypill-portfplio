@@ -7,6 +7,8 @@ export default function ContactModal() {
   const { isContactOpen, closeContact } = useContactModal();
   const [copied, setCopied] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -21,9 +23,32 @@ export default function ContactModal() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError(null);
+    const form = e.target as HTMLFormElement;
+    const data = new FormData(form);
+    try {
+      const res = await fetch('https://formspree.io/f/xnpdjlvn', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+        },
+        body: data,
+      });
+      if (res.ok) {
+        setSubmitted(true);
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        const result = await res.json();
+        setError(result.error || 'Submission failed');
+      }
+    } catch (e) {
+      setError('Network error');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const socials = [
@@ -192,6 +217,7 @@ export default function ContactModal() {
                   <input
                     id="contact-name"
                     type="text"
+                    name="name"
                     required
                     value={formData.name}
                     onChange={(e) =>
@@ -216,6 +242,7 @@ export default function ContactModal() {
                   <input
                     id="contact-email"
                     type="email"
+                    name="email"
                     required
                     value={formData.email}
                     onChange={(e) =>
@@ -238,6 +265,7 @@ export default function ContactModal() {
                   </div>
                   <textarea
                     id="contact-message"
+                    name="message"
                     required
                     rows={3}
                     value={formData.message}
@@ -249,13 +277,20 @@ export default function ContactModal() {
                   />
                 </div>
 
+                {/* ERROR MESSAGE */}
+                {error && (
+                  <div className="text-xs text-[#B81300] mb-2">
+                    {error}
+                  </div>
+                )}
                 {/* SUBMIT BUTTON */}
                 <div className="flex justify-end pt-1">
                   <button
                     type="submit"
+                    disabled={loading}
                     className="border-[1.5px] border-[#141414] bg-[#eeeeee] px-4 py-2 font-mono font-bold text-sm uppercase tracking-wider text-[#141414] shadow-[3px_3px_0px_#141414] hover:bg-[#141414] hover:text-[#eeeeee] hover:shadow-[1px_1px_0px_#141414] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0 active:translate-y-0 active:shadow-none transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#B81300]"
                   >
-                    SEND MESSAGE →
+                    {loading ? 'SENDING...' : 'SEND MESSAGE →'}
                   </button>
                 </div>
               </form>

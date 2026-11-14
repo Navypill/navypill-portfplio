@@ -48,7 +48,7 @@ export default function IllustrationsPage() {
   };
 
   return (
-    <div className="flex-1 flex flex-col p-4 sm:p-6 md:p-8 overflow-y-auto">
+    <div className="flex-1 flex flex-col pl-0 pr-2 sm:p-6 md:p-8 overflow-y-auto">
       {/* Navigation header */}
 
 
@@ -63,8 +63,8 @@ export default function IllustrationsPage() {
 
 
       {/* Masonry Grid */}
-      <div className="columns-1 md:columns-2 lg:columns-4 gap-4 space-y-4">
-        {filtered.map((item) => (
+      <div className="columns-2 md:columns-2 lg:columns-4 gap-2 space-y-2">
+        {filtered.map((item, idx) => (
           <div
             key={item.id}
             className="group break-inside-avoid border-[3px] border-[#141414] bg-[#eeeeee] flex flex-col mb-4 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[5px_5px_0px_#141414] active:translate-x-0 active:translate-y-0 active:shadow-none transition-all duration-300 cursor-pointer"
@@ -72,7 +72,10 @@ export default function IllustrationsPage() {
             <img
               src={item.src}
               alt={item.title}
+              draggable={false}
+              onContextMenu={(e) => e.preventDefault()}
               className="w-full h-auto object-cover"
+              loading={idx < 4 ? undefined : "lazy"}
             />
             <div className="hidden">
               {item.title}
@@ -82,16 +85,21 @@ export default function IllustrationsPage() {
       </div>
 
       {/* CTA Footer */}
-      <section className="bg-[#141414] text-[#eeeeee] py-12 mt-12 text-center">
-        <h2 className="text-2xl sm:text-3xl font-bold mb-4">COMMISSION BESPOKE ILLUSTRATION OR COVER ART?</h2>
-        <p className="mb-6 max-w-xl mx-auto">
-          I’m open to collaborations that push visual storytelling to its limits. Let’s create something unforgettable together.
-        </p>
+      <section className="bg-[#141414] text-[#eeeeee] py-12 px-6 sm:px-8 mt-12 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div className="text-left">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-2">
+            COMMISSION BESPOKE ILLUSTRATION OR COVER ART?
+          </h2>
+          <p className="max-w-xl">
+            I’m open to collaborations that push visual storytelling to its limits. Let’s create something unforgettable together.
+          </p>
+        </div>
+
         <button
           onClick={openContact}
-          className="font-mono text-sm px-6 py-2 bg-[#eeeeee] text-[#141414] hover:bg-[#B81300] hover:text-[#eeeeee] border border-[#141414] transition-colors"
+          className="self-start md:self-auto shrink-0 font-mono text-sm px-6 py-3 bg-[#eeeeee] text-[#141414] hover:bg-[#B81300] hover:text-[#eeeeee] border border-[#141414] transition-colors"
         >
-          LET'S WORK TOGETHER →
+          LET&apos;S WORK TOGETHER &rarr;
         </button>
       </section>
     </div>
