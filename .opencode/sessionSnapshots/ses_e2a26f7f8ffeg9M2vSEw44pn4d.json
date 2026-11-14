@@ -1,0 +1,35 @@
+{
+  "sessionId": "ses_e2a26f7f8ffeg9M2vSEw44pn4d",
+  "exportedAt": 1794589210221,
+  "sessionData": {
+    "type": "sessionData",
+    "sessionId": "ses_e2a26f7f8ffeg9M2vSEw44pn4d",
+    "title": "Session",
+    "messages": [
+      {
+        "role": "user",
+        "id": "msg_1d5d9cbda001rsOENNb3bbj5hQ",
+        "text": "what can you tell me about my current project?",
+        "messageIndex": 0
+      },
+      {
+        "role": "assistant",
+        "id": "msg_1d5da0b17002Ne833H1nX18Mc7",
+        "text": "This is an early-stage **portfolio website** for **John Agburu (Illustrator X Graphic Designer)** — a fresh Next.js 16.4.5 app built with pnpm. Here's the rundown:\n\n**Stack**\n- Next.js 16.4.5 (App Router) + React 19.3 + TypeScript\n- Tailwind CSS v4 (Turbopack), shadcn-style setup (`components.json`, Base UI, CVA, lucide-react)\n- Fonts: Space Grotesk + JetBrains Mono; a stark off-white/ink (#eee/#141414) \"neo-brutalist\" design language with hard 2.5px borders and offset hover shadows\n\n**Structure** (`src/`)\n- `app/` — Home (hero with SVG title lockup + greyscale→color portrait hover), plus `/illustrations`, `/projects`, `/journal`, `/other-work`\n- `components/` — `Navbar`, `HeroTitleSvg`, `ContactModal`, `ResumeModal`, a `ui/button`\n- `context/` — ResumeModalContext + ContactModalContext (persistent modals mounted in root layout, so they're reachable from any page)\n\n**State**\n- 6 commits; most recent added the illustrations page with filtering/grid\n- **Uncommitted changes**: modified `.gitignore` and `src/app/illustrations/page.tsx`\n- Several folders (`hooks`, `data`, `config`, `types`, `sections`) are still empty placeholders, so the illustrations/projects/journal pages likely have stubbed or in-progress content\n\n**Quirks worth knowing**\n- AGENTS.md warns this Next.js version has breaking changes vs. typical training data — check `node_modules/next/dist/docs/` before writing code\n- Layout is an `h-dvh` locked viewport shell with internal scroll areas (no whole-page scroll on desktop)\n\nWant me to dig into the uncommitted illustrations changes or any specific page?",
+        "messageIndex": 1,
+        "meta": {
+          "processingStartedAt": 1794589182899,
+          "processingCompletedAt": 1794589207556
+        }
+      }
+    ],
+    "segments": [],
+    "meta": {
+      "timelineMessageIds": [
+        "msg_1d5d9cbda001rsOENNb3bbj5hQ",
+        "msg_1d5da0b17002Ne833H1nX18Mc7"
+      ],
+      "segmentBackingMessageIds": []
+    }
+  }
+}

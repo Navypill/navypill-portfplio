@@ -3,23 +3,22 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useContactModal } from "@/context/ContactModalContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 // Mock illustration data – replace src with real assets later
 const illustrations = [
-  { id: 1, title: "SEISMIC CADENCE", src: "/assets/illustrations-preview.png", category: "CHARACTER ART" },
-  { id: 2, title: "NEON REVERIE", src: "/assets/illustrations-preview.png", category: "EDITORIAL & COVERS" },
-  { id: 3, title: "CYBER WAVE", src: "/assets/illustrations-preview.png", category: "EXPERIMENTAL" },
-  { id: 4, title: "GHOSTED VIRTUE", src: "/assets/illustrations-preview.png", category: "CHARACTER ART" },
-  { id: 5, title: "LUMINOUS RECKONING", src: "/assets/illustrations-preview.png", category: "EDITORIAL & COVERS" },
-  { id: 6, title: "VORTEX DRIFT", src: "/assets/illustrations-preview.png", category: "EXPERIMENTAL" },
-  { id: 7, title: "STATIC RIFT", src: "/assets/illustrations-preview.png", category: "CHARACTER ART" },
-  { id: 8, title: "ALCHEMICAL THORN", src: "/assets/illustrations-preview.png", category: "EDITORIAL & COVERS" },
-  { id: 9, title: "STEEL MIRAGE", src: "/assets/illustrations-preview.png", category: "EXPERIMENTAL" },
-  { id: 10, title: "ERRATIC SHIFT", src: "/assets/illustrations-preview.png", category: "CHARACTER ART" },
-  { id: 11, title: "OBSIDIAN PULSE", src: "/assets/illustrations-preview.png", category: "EDITORIAL & COVERS" },
-  { id: 12, title: "AURORA GLEAM", src: "/assets/illustrations-preview.png", category: "EXPERIMENTAL" },
+  // Interleaved to avoid similar aspect ratios together
+  { id: 1, title: "Artwork 1", src: "/assets/art1.png", category: "CHARACTER ART" },
+  { id: 5, title: "Artwork 5", src: "/assets/art5.jpg", category: "EDITORIAL & COVERS" },
+  { id: 2, title: "Artwork 2", src: "/assets/art2.jpg", category: "EDITORIAL & COVERS" },
+  { id: 6, title: "Artwork 6", src: "/assets/art6.jpg", category: "EXPERIMENTAL" },
+  { id: 3, title: "Artwork 3", src: "/assets/art3.jpg", category: "EXPERIMENTAL" },
+  { id: 7, title: "Artwork 7", src: "/assets/art7.jpg", category: "CHARACTER ART" },
+  { id: 4, title: "Artwork 4", src: "/assets/art4.jpg", category: "CHARACTER ART" },
+  { id: 8, title: "Artwork 8", src: "/assets/art8.jpg", category: "EDITORIAL & COVERS" },
+  { id: 9, title: "Artwork 9", src: "/assets/art9.jpg", category: "EXPERIMENTAL" },
+  { id: 10, title: "Artwork 10", src: "/assets/art10.jpg", category: "CHARACTER ART" },
 ];
 
 export default function IllustrationsPage() {
@@ -51,7 +50,7 @@ export default function IllustrationsPage() {
   return (
     <div className="flex-1 flex flex-col p-4 sm:p-6 md:p-8 overflow-y-auto">
       {/* Navigation header */}
-      
+
 
       {/* Title & Subheading */}
       <div className="max-w-3xl mb-8">
@@ -61,36 +60,10 @@ export default function IllustrationsPage() {
 
       </div>
 
-      {/* Filter Pill Buttons */}
-      <div className="flex flex-wrap gap-2 mb-6">
-        <button
-          onClick={() => setActiveFilter("ALL")}
-          className={`font-mono text-xs px-3 py-1 border border-[#141414] ${activeFilter === "ALL" ? "bg-[#141414] text-[#eeeeee]" : "text-[#141414] hover:bg-[#141414] hover:text-[#eeeeee]"} cursor-pointer transition-colors`}
-        >
-          ALL WORKS ({counts.ALL})
-        </button>
-        <button
-          onClick={() => setActiveFilter("CHARACTER ART")}
-          className={`font-mono text-xs px-3 py-1 border border-[#141414] ${activeFilter === "CHARACTER ART" ? "bg-[#141414] text-[#eeeeee]" : "text-[#141414] hover:bg-[#141414] hover:text-[#eeeeee]"} transition-colors`}
-        >
-          CHARACTER ART ({counts["CHARACTER ART"]})
-        </button>
-        <button
-          onClick={() => setActiveFilter("EDITORIAL & COVERS")}
-          className={`font-mono text-xs px-3 py-1 border border-[#141414] ${activeFilter === "EDITORIAL & COVERS" ? "bg-[#141414] text-[#eeeeee]" : "text-[#141414] hover:bg-[#141414] hover:text-[#eeeeee]"} transition-colors`}
-        >
-          EDITORIAL & COVERS ({counts["EDITORIAL & COVERS"]})
-        </button>
-        <button
-          onClick={() => setActiveFilter("EXPERIMENTAL")}
-          className={`font-mono text-xs px-3 py-1 border border-[#141414] ${activeFilter === "EXPERIMENTAL" ? "bg-[#141414] text-[#eeeeee]" : "text-[#141414] hover:bg-[#141414] hover:text-[#eeeeee]"} transition-colors`}
-        >
-          EXPERIMENTAL ({counts.EXPERIMENTAL})
-        </button>
-      </div>
+
 
       {/* Masonry Grid */}
-      <div className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
+      <div className="columns-1 md:columns-2 lg:columns-4 gap-4 space-y-4">
         {filtered.map((item) => (
           <div
             key={item.id}
@@ -99,7 +72,7 @@ export default function IllustrationsPage() {
             <img
               src={item.src}
               alt={item.title}
-              className="w-full h-auto object-cover mb-2"
+              className="w-full h-auto object-cover"
             />
             <div className="hidden">
               {item.title}
