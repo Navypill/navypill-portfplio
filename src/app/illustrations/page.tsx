@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useContactModal } from "@/context/ContactModalContext";
 import { useState, useEffect } from "react";
+import { motion } from "motion/react";
+import { FullscreenLightbox } from "@/components/ui/FullscreenLightbox";
 
 
 // Mock illustration data – replace src with real assets later
@@ -24,6 +26,7 @@ const illustrations = [
 export default function IllustrationsPage() {
   const { openContact } = useContactModal();
   const [activeFilter, setActiveFilter] = useState("ALL");
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const filtered = illustrations.filter((item) =>
     activeFilter === "ALL" ? true : item.category === activeFilter);
 
@@ -65,8 +68,17 @@ export default function IllustrationsPage() {
       {/* Masonry Grid */}
       <div className="columns-2 md:columns-2 lg:columns-4 gap-2 space-y-2">
         {filtered.map((item, idx) => (
-          <div
+          <motion.div
             key={item.id}
+            initial={{ opacity: 0, scale: 0.96 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: "some" }}
+            transition={{
+              duration: 0.38,
+              delay: (idx % 4) * 0.08,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            onClick={() => setLightboxIndex(idx)}
             className="group break-inside-avoid border-[3px] border-[#141414] bg-[#eeeeee] flex flex-col mb-4 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[5px_5px_0px_#141414] active:translate-x-0 active:translate-y-0 active:shadow-none transition-all duration-300 cursor-pointer"
           >
             <img
@@ -80,9 +92,17 @@ export default function IllustrationsPage() {
             <div className="hidden">
               {item.title}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
+
+      {/* Fullscreen Lightbox Modal */}
+      <FullscreenLightbox
+        items={filtered}
+        activeIndex={lightboxIndex}
+        onClose={() => setLightboxIndex(null)}
+        onChangeIndex={(newIdx) => setLightboxIndex(newIdx)}
+      />
 
       {/* CTA Footer */}
       <section className="bg-[#141414] text-[#eeeeee] py-12 px-6 sm:px-8 mt-12 flex flex-col md:flex-row md:items-center md:justify-between gap-6">

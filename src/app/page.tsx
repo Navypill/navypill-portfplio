@@ -54,15 +54,15 @@ export default function Home() {
         aria-label="Portfolio Sections and Overview"
         className="shrink-0 lg:shrink lg:flex-[46] min-h-[280px] lg:min-h-0 grid grid-cols-1 lg:grid-cols-3 gap-2.5 sm:gap-3 md:gap-3.5"
       >
-        {/* Column 1: ABOUT */}
-        <article className="border-[2px] md:border-[2.5px] border-[#141414] bg-[#eeeeee] p-4 sm:p-5 md:p-5 lg:p-5 flex flex-col justify-between overflow-y-auto lg:overflow-hidden">
+        {/* Column 1: ABOUT (order-3 on mobile/tablet, lg:order-1 on desktop) */}
+        <article className="order-3 lg:order-1 border-[2px] md:border-[2.5px] border-[#141414] bg-[#eeeeee] p-4 sm:p-5 md:p-6 lg:p-5 flex flex-col justify-between overflow-y-auto lg:overflow-hidden">
           <header className="shrink-0 mb-2">
             <h2 className="font-mono text-xs sm:text-[13px] font-bold tracking-wider text-[#141414] uppercase">
               ABOUT
             </h2>
           </header>
 
-          <div className="font-sans text-xs sm:text-[13px] md:text-[13.5px] lg:text-[12px] xl:text-[13.5px] text-[#141414] leading-relaxed flex flex-col gap-2 sm:gap-2.5 xl:gap-3 my-auto py-1">
+          <div className="font-sans text-sm sm:text-[15px] md:text-base lg:text-[13.5px] xl:text-[15px] text-[#141414] leading-relaxed flex flex-col gap-2.5 sm:gap-3 xl:gap-3.5 my-auto py-1">
             <p>
               My name is John and I&apos;m a graphic designer and Illustrator.
             </p>
@@ -71,7 +71,7 @@ export default function Home() {
               them sharp, functional, impactful, and professional, tailored to
               what each project needs.
             </p>
-            <p className="font-medium text-[#141414]">
+            <p className="font-semibold text-[#141414]">
               Let&apos;s do amazing work together!
             </p>
           </div>
@@ -79,11 +79,11 @@ export default function Home() {
           <div className="hidden lg:block h-1" aria-hidden="true" />
         </article>
 
-        {/* Column 2: ILLUSTRATIONS (Interactive Button Card) */}
+        {/* Column 2: ILLUSTRATIONS (order-1 on mobile/tablet, lg:order-2 on desktop) */}
         <Link
           href="/illustrations"
           aria-label="View Illustrations detailed showcase"
-          className="border-[2px] md:border-[2.5px] border-[#141414] bg-[#eeeeee] p-2.5 sm:p-3 md:p-3 flex flex-col min-h-[220px] lg:min-h-0 group cursor-pointer transition-all duration-300 hover:border-[#141414] hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[5px_5px_0px_#141414] active:translate-x-0 active:translate-y-0 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#141414]"
+          className="order-1 lg:order-2 border-[2px] md:border-[2.5px] border-[#141414] bg-[#eeeeee] p-2.5 sm:p-3 md:p-3 flex flex-col min-h-[220px] lg:min-h-0 group cursor-pointer transition-all duration-300 hover:border-[#141414] hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[5px_5px_0px_#141414] active:translate-x-0 active:translate-y-0 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#141414]"
         >
           <header className="flex items-center justify-between shrink-0 mb-2">
             <h2 className="font-mono text-xs sm:text-[13px] font-bold tracking-wider text-[#141414] group-hover:tracking-widest transition-all uppercase">
@@ -111,11 +111,11 @@ export default function Home() {
           </div>
         </Link>
 
-        {/* Column 3: PROJECTS (Interactive Button Card) */}
+        {/* Column 3: PROJECTS (order-2 on mobile/tablet, lg:order-3 on desktop) */}
         <Link
           href="/projects"
           aria-label="View Projects detailed showcase"
-          className="border-[2px] md:border-[2.5px] border-[#141414] bg-[#eeeeee] p-2.5 sm:p-3 md:p-3 flex flex-col min-h-[220px] lg:min-h-0 group cursor-pointer transition-all duration-300 hover:border-[#141414] hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[5px_5px_0px_#141414] active:translate-x-0 active:translate-y-0 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#141414]"
+          className="order-2 lg:order-3 border-[2px] md:border-[2.5px] border-[#141414] bg-[#eeeeee] p-2.5 sm:p-3 md:p-3 flex flex-col min-h-[220px] lg:min-h-0 group cursor-pointer transition-all duration-300 hover:border-[#141414] hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[5px_5px_0px_#141414] active:translate-x-0 active:translate-y-0 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#141414]"
         >
           <header className="flex items-center justify-between shrink-0 mb-2">
             <h2 className="font-mono text-xs sm:text-[13px] font-bold tracking-wider text-[#141414] group-hover:tracking-widest transition-all uppercase">

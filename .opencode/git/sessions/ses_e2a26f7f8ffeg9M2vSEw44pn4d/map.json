@@ -8,5 +8,12 @@
   "tmpToBaseCommit": {},
   "msgToCommit": {},
   "msgToBaseCommit": {},
-  "headCommit": "79b89b5dd6fdaa9222201e8455f9c0d581a56eb2"
+  "headCommit": "79b89b5dd6fdaa9222201e8455f9c0d581a56eb2",
+  "continuation": {
+    "currentOwnerMsgId": "msg_1dc8e1f6e002I6GmGKPjBCBVQt",
+    "predecessorOwnerMsgId": null,
+    "continuationSequence": 1,
+    "lifecycleState": "watching",
+    "postFinalWatchEntries": []
+  }
 }
