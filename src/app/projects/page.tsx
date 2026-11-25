@@ -3,6 +3,81 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useContactModal } from "@/context/ContactModalContext";
+import { motion } from "motion/react";
+
+interface Project {
+  id: string;
+  category: string;
+  location: string;
+  title: string;
+  description: string;
+  specStamp?: string;
+  deliverables: { text: string; highlight?: boolean }[];
+  image: string;
+}
+
+export const projects: Project[] = [
+  {
+    id: "maivebrain",
+    category: "[MEDICAL AND THERAPY]",
+    location: "ABUJA, NG",
+    title: "MAIVEBRAIN.COM",
+    description:
+      "Complete brand identity reboot, structural flacon engineering, tactile outer cartonnage, and an editorial campaign system grounded in clinical restraint.",
+    deliverables: [
+      { text: "WEB UI DESIGN" },
+    ],
+    image: "/assets/project-maivebrain.jpg",
+  },
+  {
+    id: "kroma",
+    category: "[AUDIO HARDWARE]",
+    location: "BERLIN, DE",
+    title: "KROMA KINETIC SYNTHESIZER",
+    description:
+      "Uncompromising industrial packaging system, CNC chassis interface typography, silk-screened manual booklets, and modular iconography.",
+    specStamp: "HARDWARE SPEC: 16-VOICE // DUAL-DSP",
+    deliverables: [
+      { text: "INDUSTRIAL PACKAGING" },
+      { text: "FACEPLATE VECTOR GRID" },
+      { text: "QUICKSTART MANUAL" },
+      { text: "DIE-CUT PULP TRAY", highlight: true },
+    ],
+    image: "/assets/project-kroma.jpg",
+  },
+  {
+    id: "munken",
+    category: "[PUBLISHING ARCHIVE]",
+    location: "TOKYO, JP",
+    title: "MUNKEN MONOLITH BOOK SERIES",
+    description:
+      "Three-volume architectural retrospective featuring custom grid scaffolds, raw unmasked Swiss binding, and dual-black duotone photography.",
+    specStamp: "FORMAT: 220X310MM // 448 PAGES",
+    deliverables: [
+      { text: "BOOK DESIGN" },
+      { text: "SWISS GRID SCHEMA" },
+      { text: "DUOTONE SEPARATIONS" },
+      { text: "COLD-GLUE BINDING", highlight: true },
+    ],
+    image: "/assets/project-munken.jpg",
+  },
+  {
+    id: "nodum",
+    category: "[CRYPTOGRAPHIC FINTECH]",
+    location: "ZURICH, CH",
+    title: "NODUM CRYPTOGRAPHIC WALLET",
+    description:
+      "Bespoke industrial packaging suite, holographic security seals, tactile metal seed-phrase engraving plates, and unboxing choreography.",
+    specStamp: "CRYPT_SPEC: BIP39 // SECP256K1",
+    deliverables: [
+      { text: "UNBOXING CHOREOGRAPHY" },
+      { text: "TAMPER-SEAL GRAPHICS" },
+      { text: "FOIL STAMPED BOX" },
+      { text: "LASER ENGRAVING", highlight: true },
+    ],
+    image: "/assets/project-nodum.jpg",
+  },
+];
 
 export default function ProjectsPage() {
   const { openContact } = useContactModal();
@@ -18,64 +93,40 @@ export default function ProjectsPage() {
           <span>←</span> BACK TO HOME
         </Link>
         <span className="font-mono text-xs font-semibold text-[#141414] tracking-widest uppercase">
-          02 / PROJECTS
+          PROJECTS
         </span>
       </div>
 
-      {/* Title & Introduction */}
-      <div className="max-w-3xl mb-8">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#141414] mb-3 uppercase">
-          Projects
-        </h1>
-        <p className="text-sm sm:text-base text-[#141414]/80 leading-relaxed font-sans">
-          Identity systems, art direction, publication layouts, and commercial graphic design engineered with bespoke typography and conceptual rigor.
-        </p>
-      </div>
-
-      {/* Showcase Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 pb-8">
-        {/* Featured Project */}
-        <div className="border-[2px] border-[#141414] bg-[#141414] p-3 flex flex-col justify-between aspect-[4/3] relative overflow-hidden group">
-          <div className="relative w-full h-full">
-            <Image
-              src="/assets/projects-preview.png"
-              alt="Poutique brand visual identity"
-              fill
-              className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
-            />
-          </div>
-          <div className="absolute bottom-3 left-3 bg-[#141414] text-[#eeeeee] px-3 py-1 font-mono text-xs font-semibold tracking-wider">
-            POUTIQUE BRAND IDENTITY — 2026
-          </div>
-        </div>
-
-        {/* Project Details */}
-        <div className="border-[2px] border-[#141414] bg-[#eeeeee] p-6 flex flex-col justify-between">
-          <div>
-            <span className="font-mono text-xs text-[#141414]/70 font-semibold tracking-widest uppercase">
-              CASE STUDY
-            </span>
-            <h2 className="text-xl sm:text-2xl font-bold mt-2 mb-4 text-[#141414]">
-              Poutique — Editorial Cosmetics
-            </h2>
-            <div className="text-xs sm:text-sm text-[#141414]/80 leading-relaxed space-y-3 font-sans">
-              <p>
-                A high-fashion beauty and cosmetic brand identity project blending expressive high-contrast display serif typography with bold editorial macro photography.
-              </p>
-              <p>
-                Deliverables included logotype craftsmanship, packaging typography guidelines, digital campaign art direction, and editorial social assets.
-              </p>
-            </div>
+      {/* Under Construction Notice Box */}
+      <div className="flex-1 min-h-[340px] flex items-center justify-center p-4">
+        <div className="max-w-lg w-full border-[2.5px] border-[#141414] bg-[#eeeeee] p-6 sm:p-8 shadow-[6px_6px_0px_#141414] flex flex-col items-start gap-4">
+          <div className="flex items-center gap-2 font-mono text-[11px] font-bold tracking-widest text-[#B81300] uppercase">
+            <span>[ SYSTEM NOTICE ]</span>
+            <span>//</span>
+            <span>STATUS: 404_PENDING</span>
           </div>
 
-          <div className="border-t border-[#141414]/20 pt-4 mt-6 flex items-center justify-between font-mono text-xs">
-            <span className="text-[#141414]/60">DISCIPLINE: BRANDING &amp; TYPOGRAPHY</span>
+          <h1 className="font-mono text-2xl sm:text-3xl font-bold uppercase tracking-tight text-[#141414]">
+            UNDER CONSTRUCTION<span className="text-[#B81300]">.</span>
+          </h1>
+
+          <p className="font-sans text-sm text-[#141414]/80 leading-relaxed">
+            Design projects, full case studies, brand identity archives, and interactive prototypes are currently being curated and will be published here soon.
+          </p>
+
+          <div className="pt-2 flex items-center gap-3">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase px-4 py-2 border-[1.5px] border-[#141414] bg-[#141414] text-[#eeeeee] hover:bg-[#B81300] hover:border-[#B81300] shadow-[2px_2px_0px_#141414] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0 active:translate-y-0 transition-all"
+            >
+              ← RETURN HOME
+            </Link>
             <button
               type="button"
               onClick={openContact}
-              className="font-semibold text-[#141414] hover:text-[#B81300] underline underline-offset-4 cursor-pointer"
+              className="font-mono text-xs font-bold uppercase px-4 py-2 border-[1.5px] border-[#141414] bg-[#eeeeee] text-[#141414] hover:bg-[#141414] hover:text-[#eeeeee] shadow-[2px_2px_0px_#141414] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0 active:translate-y-0 transition-all cursor-pointer"
             >
-              START A PROJECT →
+              [ GET IN TOUCH → ]
             </button>
           </div>
         </div>

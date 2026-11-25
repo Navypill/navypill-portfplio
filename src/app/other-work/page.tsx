@@ -9,10 +9,11 @@ export const metadata: Metadata = {
 export default function OtherWorkPage() {
   return (
     <div className="flex-1 flex flex-col p-4 sm:p-6 md:p-8 overflow-y-auto">
+      {/* Navigation header */}
       <div className="flex items-center justify-between border-b-[2px] border-[#141414] pb-4 mb-6">
         <Link
           href="/"
-          className="font-mono text-xs sm:text-sm font-semibold tracking-wider text-[#141414] hover:text-[#B81300] transition-colors flex items-center gap-1.5"
+          className="font-mono text-xs sm:text-sm font-semibold tracking-wider text-[#141414] hover:text-[#B81300] transition-colors flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#141414]"
         >
           <span>←</span> BACK TO HOME
         </Link>
@@ -21,37 +22,32 @@ export default function OtherWorkPage() {
         </span>
       </div>
 
-      <div className="max-w-3xl mb-8">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#141414] mb-3 uppercase">
-          Other Work & Archive
-        </h1>
-        <p className="text-sm sm:text-base text-[#141414]/80 leading-relaxed font-sans">
-          Experimental sketches, poster designs, logotypes, merchandise drops, and ongoing creative R&D.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pb-8">
-        {[
-          { title: "Poster Series 01", tag: "PRINT", desc: "Silkscreen typographic exploration on heavy paper." },
-          { title: "Monogram Studies", tag: "IDENTITY", desc: "Geometric monogram systems for apparel." },
-          { title: "Motion Snippets", tag: "ANIMATION", desc: "Frame-by-frame vector loop studies." },
-        ].map((item, i) => (
-          <div
-            key={i}
-            className="border-[2px] border-[#141414] bg-[#eeeeee] p-5 flex flex-col justify-between min-h-[180px] hover:border-[#B81300] transition-colors"
-          >
-            <div>
-              <span className="font-mono text-[11px] font-semibold text-[#B81300] tracking-widest uppercase">
-                {item.tag}
-              </span>
-              <h3 className="text-lg font-bold mt-1 text-[#141414]">{item.title}</h3>
-              <p className="text-xs text-[#141414]/75 mt-2 leading-relaxed">{item.desc}</p>
-            </div>
-            <span className="font-mono text-[11px] font-medium text-[#141414]/50 mt-4">
-              ARCHIVE // 2025–2026
-            </span>
+      {/* Under Construction Notice Box */}
+      <div className="flex-1 min-h-[340px] flex items-center justify-center p-4">
+        <div className="max-w-lg w-full border-[2.5px] border-[#141414] bg-[#eeeeee] p-6 sm:p-8 shadow-[6px_6px_0px_#141414] flex flex-col items-start gap-4">
+          <div className="flex items-center gap-2 font-mono text-[11px] font-bold tracking-widest text-[#B81300] uppercase">
+            <span>[ SYSTEM NOTICE ]</span>
+            <span>//</span>
+            <span>STATUS: 404_PENDING</span>
           </div>
-        ))}
+
+          <h1 className="font-mono text-2xl sm:text-3xl font-bold uppercase tracking-tight text-[#141414]">
+            UNDER CONSTRUCTION<span className="text-[#B81300]">.</span>
+          </h1>
+
+          <p className="font-sans text-sm text-[#141414]/80 leading-relaxed">
+            Archive studies, print editions, merchandise, and experimental media are currently in production and will be catalogued here soon.
+          </p>
+
+          <div className="pt-2">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase px-4 py-2 border-[1.5px] border-[#141414] bg-[#141414] text-[#eeeeee] hover:bg-[#B81300] hover:border-[#B81300] shadow-[2px_2px_0px_#141414] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0 active:translate-y-0 transition-all"
+            >
+              ← RETURN HOME
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );
